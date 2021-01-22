@@ -29,6 +29,7 @@ require 'faker'
         author: Faker::Twitter.screen_name,
         tweet_id: i+1
     })
+end
 
 
 # Tweet.create({
@@ -44,7 +45,7 @@ require 'faker'
 #   })
 
 
-Reply.create([
-    {content: "Wow, you're super good at math @Pythagoras570!", author: "RainbowUnicorn781", tweet_id: 1},
-    {content: "Walkin' where @Nicky62?", author: "GleefulDolphin123", tweet_id: 2}
-])
+# Reply.create([
+#     {content: "Wow, you're super good at math @Pythagoras570!", author: "RainbowUnicorn781", tweet_id: 1},
+#     {content: "Walkin' where @Nicky62?", author: "GleefulDolphin123", tweet_id: 2}
+# ])
