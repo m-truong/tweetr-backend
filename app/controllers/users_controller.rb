@@ -5,12 +5,15 @@ class UsersController < ApplicationController
 
   #Authenticate user
   def login
-    user = User.find_by(username: params[:user][:username])
-
-    if user && user.authenticate(params[:user][:password])
+    user = User.find_by(username: params[:username])
+    puts params[:password]
+    if user && user.authenticate(params[:password])
       token = create_token(user.id, user.username)
+      puts  token = create_token(user.id, user.username)
       render json: { status: 200, token: token, user: user }
+      puts "Authorized"
     else
+      puts "unauthorized"
       render json: {status: 401, message: 'Unauthorized'}
     end
   end
@@ -29,7 +32,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.new(username: params[:username], password: params[:password])
 
     if @user.save
       render json: @user, status: :created, location: @user
